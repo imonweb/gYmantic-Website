@@ -1,3 +1,7 @@
+::selection {
+  background-color: var(--color-primary);
+}
+
 *,
 *::before,
 *::after {
@@ -184,6 +188,32 @@ a:visited {
 .header__nav--links__toggle-container input[type="checkbox"]::before,
 .header__nav--links__toggle-container input[type="checkbox"]::after {
   content: '';
+  position: absolute;
+  top: 0.8rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: var(--color-quinary);
+  box-shadow: 0 0.1rem 0.3rem 0.1rem rgba(128, 128, 128, 0.35);
+  transition: all 0.5s ease-in-out;
+}
+
+.header__nav--links__toggle-container input[type="checkbox"]::before {
+  left: 0.5rem;
+}
+
+.header__nav--links__toggle-container input[type="checkbox"]::after {
+  right: 0.5rem;
+}
+
+.header__nav--links__toggle-container input:checked[type='checkbox']::before {
+  left: 37%;
+  box-shadow: none;
+}
+
+.header__nav--links__toggle-container input:checked[type='checkbox']::after {
+  right: 38%;
+  box-shadow: none;
 }
 
 /*  Upwards */
@@ -256,5 +286,39 @@ a:visited {
   background-color: var(--color-quarternary);
   grid-column: container-start / container-end;
   height: 300px;
+}
+
+.scroll {
+  position: fixed;
+  bottom: 70rem;
+  right: 4rem;
+  height: 4rem;
+  width: 4rem;
+  background-image: url("../img/scroll/scroll.svg");
+  background-repeat: no-repeat;
+  background-color: var(--color-secondary-m);
+  background-size: contain;
+  background-position: center;
+  padding: 1rem;
+  border-radius: 50%;
+  z-index: 30;
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(1, 0, 0, 1);
+}
+
+.scroll.active {
+  visibility: visible;
+  opacity: 1;
+  bottom: 4rem;
+}
+
+html.transition,
+html.transition *,
+html.transition *::before,
+html.transition *::after {
+  transition: all 0.5s !important;
+  transition-delay: 0 !important;
 }
 /*# sourceMappingURL=main-style.css.map */
